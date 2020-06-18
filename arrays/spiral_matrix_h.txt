@@ -1,0 +1,27 @@
+vector<vector<int> > Solution::generateMatrix(int n) {
+    vector<vector<int>>v(n,vector<int>(n,0));
+    
+    int i,j,k,p=1;
+    for(k=0;k<=n/2;k++){
+        i=k;
+        for(j=k;j<n-k;j++){
+            v[i][j]=p++;
+        }
+        j--;
+        i++;
+        for(;i<n-k;i++){
+            v[i][j]=p++;
+        }
+        i--;
+        j--;
+        for(;j>=k;j--){
+            v[i][j]=p++;
+        }
+        j++;
+        i--;
+        for(;i>k;i--){
+            v[i][j]=p++;
+        }
+    }
+    return v;
+}
