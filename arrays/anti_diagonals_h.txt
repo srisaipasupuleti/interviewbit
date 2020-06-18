@@ -1,0 +1,17 @@
+vector<vector<int> > Solution::diagonal(vector<vector<int> > &v) {
+    int n=v.size(),i,j,k,p;
+    vector<vector<int>>a(2*n-1);
+    for(i=0;i<n;i++){
+        for(j=0,k=i;j<=i,k>=0;j++,k--){
+            a[i].push_back(v[j][k]);
+        }
+    }
+    
+    for(int p=1;p<=n,i<2*n-1;p++,i++){
+        for(j=p,k=n-1;j<n,k>=p;j++,k--){
+            a[i].push_back(v[j][k]);
+        }
+    }
+    
+    return a;
+}
