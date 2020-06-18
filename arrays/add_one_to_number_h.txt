@@ -1,0 +1,33 @@
+vector<int> Solution::plusOne(vector<int> &A) {
+    int n=A.size();
+    
+    int d=A[n-1]+1;
+        if(d>9){
+            int c=d/10;
+            A[n-1]=d%10;
+            for(int i=n-2;i>=0;i--){
+                d=A[i]+c;
+                c=0;
+                A[i]=d%10;
+                if(d>9){
+                    c=d/10;
+                }
+            }
+            if(c!=0){
+                auto it = A.insert(A.begin(), c);
+            }
+        }
+        else{
+            A[n-1]=d;
+        }
+        for(vector<int>::iterator itr=A.begin();itr!=A.end();itr++){
+            if(*itr==0){
+                A.erase(itr);
+                itr--;
+            }
+            else{
+                break;
+            }
+        }
+        return A;
+}
