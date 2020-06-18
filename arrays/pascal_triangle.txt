@@ -1,0 +1,21 @@
+vector<vector<int> > Solution::solve(int n) {
+   // vector<int>v[n];
+  //  vector<vector<int>>v;
+    if(n==0){
+        vector<vector<int>>v;
+        return v;
+    }
+    vector<vector<int>>v(n);
+    v[0].push_back(1);
+    
+    for(int i=1;i<n;i++){
+        for(int j=0;j<i+1;j++){
+            if(j==0||j==i)
+                v[i].push_back(1);
+            else{
+                v[i].push_back(v[i-1][j-1]+v[i-1][j]);
+            }
+        }
+    }
+    return v;
+}
