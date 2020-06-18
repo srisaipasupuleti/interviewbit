@@ -1,0 +1,16 @@
+int Solution::solve(vector<int> &a) {
+    int n=a.size(),i;
+    sort(a.begin(),a.end());
+    
+    for(i=0;i<n-1;i++){
+        if(a[i]<a[i+1]){
+            int x=n-i-1;
+            if(x==a[i]){
+                return 1;
+            }
+        }
+    }
+    if(a[i]==0)
+        return 1;
+    return -1;
+}
