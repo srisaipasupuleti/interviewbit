@@ -1,3 +1,5 @@
+//naive sol
+
 int lsv(vector<int> &A,int i){
     if(i==0)return 0;
     else{
