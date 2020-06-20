@@ -1,0 +1,37 @@
+int Solution::maximumGap(const vector<int> &v) {
+    int mav,miv,r,n=v.size();
+    
+    if(n==0 || n==1){
+        return 0;
+    }
+    
+    mav=*max_element(v.begin(),v.end());
+    miv=*min_element(v.begin(),v.end());
+    
+    r=mav-miv+1;
+    
+    vector<vector<int>>a(r+1);
+    vector<int>arr;
+    
+    for(int i=0;i<n;i++){
+        int p=v[i]-miv;
+        a[p].push_back(v[i]);
+    }
+    int x=a.size();
+    for(int i=0;i<x;i++){
+        n=a[i].size();
+        for(int j=0;j<n;j++){
+            arr.push_back(a[i][j]);
+        }
+    }
+    
+    //cout<<mav<<" "<<miv<<endl;
+    int ans=0;
+    for(int i=0;i<arr.size()-1;i++){
+        r=arr[i+1]-arr[i];
+        if(ans<r){
+            ans=r;
+        }
+    }
+    return ans;
+}
