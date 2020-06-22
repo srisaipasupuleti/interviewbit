@@ -1,0 +1,26 @@
+bool ownCom(string x,string y){
+    string a="",b="";
+    a=x+y;
+    b=y+x;
+    return a>b;
+}
+
+string Solution::largestNumber(const vector<int> &v) {
+    int n=v.size();
+    vector<string>s(n);
+    string ans="";
+    for(int i=0;i<n;i++){
+        s[i]=to_string(v[i]);
+    }
+    
+    sort(s.begin(),s.end(),ownCom);
+    
+    for(int i=0;i<s.size();i++){
+        ans+=s[i];
+    }
+    if(ans[0]=='0'){
+        ans="0";
+    }
+    return ans;
+    
+}
